@@ -1,0 +1,11 @@
+
+- "../../t_deps/modules/web-resource" build tests
+- "../../t_deps/modules/promise" build tests
+- "../../t_deps/modules/web-url" build tests
+- "../../t_deps/modules/web-encodings" build tests
+- "../../t_deps/modules/web-encodings.2" build tests
+- "../../t_deps/modules/web-datetime" build tests
+- "../../t_deps/modules/web-url.2" build tests
+- "../../t_deps/modules/promise.2" build tests
+- "../../t_deps/modules/json-ps" build tests
+- "../../t_deps/modules/web-datetime.2" build tests
