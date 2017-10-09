@@ -1,5 +1,3 @@
-# -*- Makefile -*-
-
 all:
 
 WGET = wget
@@ -8,7 +6,7 @@ GIT = git
 
 updatenightly: local/bin/pmbp.pl
 	$(CURL) -s -S -L -f https://gist.githubusercontent.com/wakaba/34a71d3137a52abb562d/raw/gistfile1.txt | sh
-	$(GIT) add modules t_deps/modules
+	$(GIT) add t_deps/modules
 	perl local/bin/pmbp.pl --update
 	$(GIT) add config
 
@@ -30,18 +28,18 @@ pmbp-update: git-submodules pmbp-upgrade
 	perl local/bin/pmbp.pl $(PMBP_OPTIONS) --update
 pmbp-install: pmbp-upgrade
 	perl local/bin/pmbp.pl $(PMBP_OPTIONS) --install \
-            --create-perl-command-shortcut @perl \
-            --create-perl-command-shortcut @prove
+            --create-perl-command-shortcut @perl
 
 ## ------ Tests ------
 
-PROVE = ./prove
+PERL = ./perl
 
 test: test-deps test-main
 
 test-deps: deps
 
+# XXX requires TEST_WD_URL
 test-main:
-	$(PROVE) t/*.t
+        TEST_MAX_CONCUR=1 WEBUA_DEBUG=2 $(PERL) t_deps/run-qunit-tests.pl
 
 ## License: Public Domain.
