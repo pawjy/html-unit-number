@@ -2,12 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
   <title>Test</title>
-  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.2.0.css">
-  <script src="https://code.jquery.com/qunit/qunit-2.2.0.js"></script>
-
-  <script src="../src/unit-number.js"></script>
 </head>
 <body>
   <div id="for-screenshot" style="display: none;"></div>
@@ -16,17 +11,7 @@
     <unit-number id=u1 title='<number-value>12.45</number-value><number-unit>km</number-unit>'><number-value>12.45</number-value><number-unit>km</number-unit></unit-number>
     <unit-number id=u2 title='abce'>abce</unit-number>
   </div>
-  <script>
-    QUnit.test ("children not mutated", function (assert) {
-      var done = assert.async ();
-
-      ['#u1', '#u2'].forEach (function (selector) {
-        var e = document.querySelector (selector);
-        assert.equal (e.innerHTML, e.title, selector);
-      });
-      done ();
-    });
-  </script>
+  <script src=runtests.js></script>
 </body>
 </html>
 <!--

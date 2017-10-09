@@ -1,0 +1,64 @@
+<unit-number></unit-number>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Element semantics
+
+  unit-number
+
+    A |unit-number| element represents a number with unit.  It is a
+    phrasing content, flow content, and palpable content.  Its content
+    model is a |number-value| element followed by a |number-unit|
+    element.
+
+  number-value
+
+    A |number-value| element represents the number part of the parent
+    |unit-number| element.  If the parent is not a |unit-number|
+    element, the element represents its content.  Its content model is
+    phrasing content.  It may contain any character sequence directly
+    or indirectly, which as a whole represents a number suitable for
+    human consumption.
+
+  number-unit
+
+    A |number-unit| element represents the unit part of the parent
+    |unit-number| element.  If the parent is not a |unit-number|
+    element, the element represents its content.  Its content model is
+    phrasing content.  It may contain any character sequence directly
+    or indirectly, which as a whole represents a unit suitable for
+    human consumption.
+
+* Dynamic content expansion
+
+The |unit-number.js| script in the |src| directory of this Git
+repository implements the |unit-number| element.  It can be loaded by
+the usual way:
+
+  <script src=path/to/unit-number.js async></script>
+
+This |script| element can be inserted, whenever desired, into anywhere
+in the document in question.  It mutates the content of any
+|unit-number| element in the document (including any |unit-number|
+element inserted thereafter) with |type| attribute, representing
+human-readable equivalent to |value| attribute value.  The content is
+also to be updated whenever the |value| attribute value is updated.
+Any existing content of the element is discarded.
+
+The |unit-number| element's |type| attribute value can be one of
+following:
+
+  distance
+
+    The element represents a distance.  The |value| attribute value
+    must be a JavaScript floating point number string in meters.
+
+* Author
+
+Wakaba <wakaba@suikawiki.org>.
+
+* License
+
+Per CC0 <https://creativecommons.org/publicdomain/zero/1.0/>, to the
+extent possible under law, the author has waived all copyright and
+related or neighboring rights to the files in this repository unless
+otherwise stated.
