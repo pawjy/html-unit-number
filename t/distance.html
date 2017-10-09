@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Test</title>
+</head>
+<body>
+  <div id="for-screenshot" style="display: none;"></div>
+  <div id="qunit"></div>
+  <div id="qunit-fixture">
+    <unit-number id=u1 value=12.45 data-value=12.45 type=distance title='<number-value>12.45</number-value><number-unit>m</number-unit>'></unit-number>
+  </div>
+  <script src=runtests.js></script>
+
+  <test-code name="inserted">
+    var e = document.createElement ('unit-number');
+    e.setAttribute ('type', 'distance');
+    e.setAttribute ('value', '+424.000');
+    e.title = '&lt;number-value>424&lt;/number-value>&lt;number-unit>m&lt;/number-unit>';
+    e.setAttribute ('data-value', '+424.000');
+    document.body.appendChild (e);
+    return this.waitAndCheck (e);
+  </test-code>
+
+  <test-code name="value changed">
+    // <unit-number type=distance value=43 data-value=-553 title='<number-value>-553</number-value><number-unit>m</number-unit>'></unit-number>
+    var e = document.querySelector ('test-code[name="value changed"] unit-number');
+    e.setAttribute ('value', -553);
+    return this.waitAndCheck (e);
+  </test-code>
+
+  <test-code name="value changed twice">
+    // <unit-number type=distance value=43 data-value=-553 title='<number-value>-553</number-value><number-unit>m</number-unit>'></unit-number>
+    var e = document.querySelector ('test-code[name="value changed twice"] unit-number');
+    e.setAttribute ('value', 44.33);
+    return Promise.resolve ().then (() => 
+      e.setAttribute ('value', -553)
+    ).then (() => this.waitAndCheck (e) );
+  </test-code>
+</body>
+</html>
+<!--
+
+Per CC0 <https://creativecommons.org/publicdomain/zero/1.0/>, to the
+extent possible under law, the author has waived all copyright and
+related or neighboring rights to this work.
+
+-->
