@@ -7,8 +7,8 @@
 
     A |unit-number| element represents a number with unit.  It is a
     phrasing content, flow content, and palpable content.  Its content
-    model is a |number-value| element followed by a |number-unit|
-    element.
+    model is a |number-value| element followed by an optional
+    |number-unit| element.
 
   number-value
 
@@ -44,29 +44,40 @@ human-readable equivalent to |value| attribute value.  The content is
 also to be updated whenever the |value| attribute value is updated.
 Any existing content of the element is discarded.
 
+The |unit-number| element's |value| attribute value must be a
+JavaScript floating point number string.  The value of a |unit-number|
+element is the result of the JavaScript |parseFloat| function's return
+value when applied to the |value| attribute value.
+
 The |unit-number| element's |type| attribute value can be one of
 following:
-
-  distance
-
-    The element represents a distance.  The |value| attribute value
-    must be a JavaScript floating point number string in meters.
 
   count
 
     The element represents a count, i.e. the number of something.  The
-    |value| attribute value must be a JavaScript floating point number
-    string of the number.  If there is a |unit| attribute, its value
-    is used as the unit.  If the unit begins with an ASCII letter, a
-    SPACE character is inserted between the number and the value and a
-    |hasseparator| boolean attribute is specified to the |unit-number|
-    element.
+    value of the element is the count.
+
+  distance
+
+    The element represents a distance.  The value of the element is
+    the distance in meters.
 
   percentage
 
-    The element represents a ratio as percentage (%).  The |value|
-    attribute value must be a JavaScript floating point number string
-    of the ratio, where |0| represents 0% and |1| represents 100%.
+    The element represents a ratio as percentage (%).  The value of
+    the element is the ratio, where |0| represents 0% and |1|
+    represents 100%.
+
+  rank
+
+    The element represents a rank (as in ranking).  The value of the
+    element is the rank number.
+
+Types |count| and |rank| support the |unit| attribute.  If there is a
+|unit| attribute, its value is used as the unit.  If the unit begins
+with an ASCII letter, a SPACE character is inserted between the number
+and the value and a |hasseparator| boolean attribute is specified to
+the |unit-number| element.
 
 * Author
 
