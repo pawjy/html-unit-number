@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Test</title>
+</head>
+<body>
+  <div id="qunit-fixture"></div>
+  <unit-number id=u1 value=12.45 data-value=12.45 type=distance
+      data-title-imperial='<number-value>40</number-value><number-unit>ft</number-unit>'
+      title='<number-value>12.45</number-value><number-unit>m</number-unit>'></unit-number>
+  <script src=runtests.js></script>
+
+  <test-code name="metric -> imperial">
+    var e = document.querySelector ("#u1");
+    return this.waitAndCheck (e).then (() => {
+      document.documentElement.setAttribute ('data-distance-unit', 'imperial');
+      e.setAttribute ('title', e.getAttribute ('data-title-imperial'));
+      return this.waitAndCheck (e);
+    });
+  </test-code>
+</body>
+</html>
+<!--
+
+Per CC0 <https://creativecommons.org/publicdomain/zero/1.0/>, to the
+extent possible under law, the author has waived all copyright and
+related or neighboring rights to this work.
+
+-->
