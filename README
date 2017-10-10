@@ -7,8 +7,19 @@
 
     A |unit-number| element represents a number with unit.  It is a
     phrasing content, flow content, and palpable content.  Its content
-    model is a |number-value| element followed by an optional
-    |number-unit| element.
+    model is either a |number-value| element followed by an optional
+    |number-unit| element, or one or more sequences of a
+    |number-value| element followed by a |number-unit| element finally
+    followed by a |number-sign| element.
+
+  number-sign
+
+    A |number-sign| element represents the sign part of the parent
+    |unit-number| element.  If the parent is not a |unit-number|
+    element, the element represents its content.  Its content model is
+    phrasing content.  It may contain any character sequence directly
+    or indirectly, which as a whole represents a sign suitable for
+    human consumption.
 
   number-value
 
@@ -61,6 +72,16 @@ following:
 
     The element represents a distance.  The value of the element is
     the distance in meters.
+
+  lat
+
+    The element represents a latitude.  The value of the element is
+    the latitude in degrees.
+
+  lon
+
+    The element represents a longitude.  The value of the element is
+    the longitude in degrees.
 
   percentage
 

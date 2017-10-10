@@ -1,4 +1,11 @@
 (function () {
+  var texts = {
+    "lat.plus": "N",
+    "lat.minus": "S",
+    "lon.plus": "E",
+    "lon.minus": "W",
+  };
+
   var update = function (e) {
     var value = parseFloat (e.getAttribute ('value'));
     if (!Number.isFinite (value)) return;
@@ -14,6 +21,22 @@
     } else if (type === 'percentage') {
       unit = '%';
       value = Math.round (value * 100 * 10) / 10;
+    } else if (type === 'lat' || type === 'lon') {
+      var sign = value >= 0;
+      if (!sign) value = -value;
+      var v = Math.floor (value);
+      value = (value % 1) * 60;
+      var w = Math.floor (value);
+      value = (value % 1) * 60;
+      var x = Math.floor (value);
+
+      e.innerHTML = "<number-value></number-value><number-unit>\u00B0</number-unit><number-value></number-value><number-unit>\u2032</number-unit><number-value></number-value><number-unit>\u2033</number-unit><number-sign></number-sign>";
+      e.children[0].textContent = v;
+      e.children[2].textContent = w;
+      e.children[4].textContent = x;
+      e.children[6].textContent = texts[type + (sign ? ".plus" : ".minus")];
+      e.removeAttribute ('hasseparator');
+      return;
     }
     if (unit === '') {
       e.innerHTML = '<number-value></number-value>';
@@ -33,11 +56,13 @@
   }; // update
 
   var upgrade = function (e) {
+    if (e.unitNumberUpgraded) return;
+    e.unitNumberUpgraded = true;
     var mo = new MutationObserver (function (mutations) {
       update (mutations[0].target);
     });
     mo.observe (e, {attributeFilter: ['value', 'type']});
-    update (e);
+    Promise.resolve (e).then (update);
   }; // upgrade
   
   var op = upgrade;
