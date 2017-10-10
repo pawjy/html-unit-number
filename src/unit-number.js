@@ -9,6 +9,18 @@
     "duration.s": "s",
   };
 
+  var mpf = 0.3048; // meter = 1 international foot
+  var fpml = 5280; // feet = 1 mile
+
+  var useIUnits = false;
+  if (document.documentElement) {
+    useIUnits = document.documentElement.getAttribute ('data-distance-unit') === 'imperial';
+    new MutationObserver (function (mutations) {
+      useIUnits = document.documentElement.getAttribute ('data-distance-unit') === 'imperial';
+      document.querySelectorAll ('unit-number[type=distance]').forEach (update);
+    }).observe (document.documentElement, {attributeFilter: ['data-distance-unit']});
+  }
+  
   var update = function (e) {
     var value = parseFloat (e.getAttribute ('value'));
     if (!Number.isFinite (value)) return;
@@ -17,6 +29,24 @@
     var separator = '';
     if (type === 'distance') {
       unit = 'm';
+      if (useIUnits) {
+        if (value >= 10 * fpml * mpf) {
+          value = Math.floor (value / mpf / fpml);
+          unit = 'ml';
+        } else {
+          value = Math.floor (value / mpf);
+          unit = 'ft';
+        }
+      } else {
+        if (value >= 10000) {
+          value = Math.floor (value / 100) / 10;
+          unit = 'km';
+        } else if (value >= 100) {
+          value = Math.floor (value);
+        } else {
+          value = Math.floor (value * 100) / 100;
+        }
+      }
     } else if (type === 'count' || type === 'rank') {
       // XXX plural rules
       unit = e.getAttribute ('unit') || '';

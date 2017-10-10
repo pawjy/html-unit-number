@@ -73,6 +73,11 @@ following:
     The element represents a distance.  The value of the element is
     the distance in meters.
 
+    If the document's document element (i.e. the |html| element) has a
+    |data-distance-unit| attribute whose value is |imperial|, the
+    content is generated using the imperial system units (e.g. miles).
+    Otherwise, the metric system units are used.
+
   duration
 
     The element represents a duration.  The value of the element is
