@@ -7,6 +7,18 @@ unit-number:not([hasseparator]) > number-value + number-unit {
   margin-left: .2em;
 }
 
+unit-number[type=lat] > number-value + number-unit,
+unit-number[type=lon] > number-value + number-unit {
+  margin-left: 0;
+  margin-right: .2em;
+}
+
+unit-number[type=lat] > number-sign,
+unit-number[type=lon] > number-sign {
+  text-transform: lowercase;
+  font-variant: small-caps;
+}
+
 /*
 
 Per CC0 <https://creativecommons.org/publicdomain/zero/1.0/>, to the

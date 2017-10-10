@@ -13,6 +13,12 @@
   Selected <unit-number value=533 type=count></unit-number>.
 </template>
 
+<p>The point is at:
+  <template>
+    <unit-number value=13.415 type=lat></unit-number>,
+    <unit-number value=-124.4501 type=lon></unit-number>.
+  </template>
+
 <script>
   document.querySelectorAll ('template').forEach (function (e) {
     e.parentNode.replaceChild (e.content, e);
