@@ -7,14 +7,19 @@
     var separator = '';
     if (type === 'distance') {
       unit = 'm';
-    } else if (type === 'count') {
-      unit = e.getAttribute ('unit') || 'items';
+    } else if (type === 'count' || type === 'rank') {
+      // XXX plural rules
+      unit = e.getAttribute ('unit') || '';
       if (/^[A-Za-z]/.test (unit)) separator = ' ';
     } else if (type === 'percentage') {
       unit = '%';
-      value = value * 100;
+      value = Math.round (value * 100 * 10) / 10;
     }
-    if (unit) {
+    if (unit === '') {
+      e.innerHTML = '<number-value></number-value>';
+      e.firstChild.textContent = value.toLocaleString ();
+      e.removeAttribute ('hasseparator');
+    } else if (unit !== null) {
       e.innerHTML = '<number-value></number-value><number-unit></number-unit>';
       e.firstChild.textContent = value.toLocaleString ();
       e.lastChild.textContent = unit;
