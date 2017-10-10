@@ -72,6 +72,20 @@
       e.appendChild (document.createElement ('number-unit')).textContent = texts["duration.s"];
       e.removeAttribute ('hasseparator');
       return;
+    } else if (type === 'bytes') {
+      unit = 'B';
+      if (value > 1000) {
+        value = Math.round (value / 1024 * 10) / 10;
+        unit = 'KB';
+        if (value > 1000) {
+          value = Math.round (value / 1024 * 10) / 10;
+          unit = 'MB';
+          if (value > 1000) {
+            value = Math.round (value / 1024 * 10) / 10;
+            unit = 'GB';
+          }
+        }
+      }
     } else if (type === 'lat' || type === 'lon') {
       var sign = value >= 0;
       if (!sign) value = -value;

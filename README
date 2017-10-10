@@ -63,6 +63,11 @@ value when applied to the |value| attribute value.
 The |unit-number| element's |type| attribute value can be one of
 following:
 
+  bytes
+
+    The element represents a length of binary data.  The value of the
+    element is the number of the bytes.
+
   count
 
     The element represents a count, i.e. the number of something.  The
