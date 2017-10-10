@@ -1,9 +1,9 @@
-unit-number number-value {
+unit-number > number-value {
   font-weight: bolder;
   font-size: 120%;
 }
 
-unit-number number-value + number-unit {
+unit-number:not([hasseparator]) > number-value + number-unit {
   margin-left: .2em;
 }
 

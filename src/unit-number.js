@@ -4,19 +4,32 @@
     if (!Number.isFinite (value)) return;
     var type = e.getAttribute ('type');
     var unit = null;
+    var separator = '';
     if (type === 'distance') {
       unit = 'm';
+    } else if (type === 'count') {
+      unit = e.getAttribute ('unit') || 'items';
+      if (/^[A-Za-z]/.test (unit)) separator = ' ';
+    } else if (type === 'percentage') {
+      unit = '%';
+      value = value * 100;
     }
     if (unit) {
       e.innerHTML = '<number-value></number-value><number-unit></number-unit>';
       e.firstChild.textContent = value.toLocaleString ();
       e.lastChild.textContent = unit;
+      e.insertBefore (document.createTextNode (separator), e.lastChild);
+      if (separator.length) {
+        e.setAttribute ('hasseparator', '');
+      } else {
+        e.removeAttribute ('hasseparator');
+      }
     }
   }; // update
 
   var upgrade = function (e) {
     var mo = new MutationObserver (function (mutations) {
-      update (e);
+      update (mutations[0].target);
     });
     mo.observe (e, {attributeFilter: ['value', 'type']});
     update (e);
