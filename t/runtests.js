@@ -55,6 +55,15 @@
       });
     });
   });
+
+  var div1 = document.createElement ('div');
+  div1.id = "for-screenshot";
+  div1.style.display = 'none';
+  document.body.appendChild (div1);
+
+  var div2 = document.createElement ('div2');
+  div2.id = "qunit";
+  document.body.appendChild (div2);
 }) ();
 /*
 

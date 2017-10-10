@@ -5,10 +5,10 @@
   <title>Test</title>
 </head>
 <body>
-  <div id="for-screenshot" style="display: none;"></div>
-  <div id="qunit"></div>
   <div id="qunit-fixture">
     <unit-number id=u1 value=12.45 data-value=12.45 type=distance title='<number-value>12.45</number-value><number-unit>m</number-unit>'></unit-number>
+    <unit-number id=u2 value=12.45 data-value=12.45 type=distance title='<number-value>12.45</number-value><number-unit>m</number-unit>'><number-value>555</number-value><number-unit>km</number-unit></unit-number>
+    <unit-number id=u3 value=abcde data-value=abcde type=distance title='<number-value>555</number-value><number-unit>km</number-unit>'><number-value>555</number-value><number-unit>km</number-unit></unit-number>
   </div>
   <script src=runtests.js></script>
 

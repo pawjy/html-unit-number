@@ -52,6 +52,22 @@ following:
     The element represents a distance.  The |value| attribute value
     must be a JavaScript floating point number string in meters.
 
+  count
+
+    The element represents a count, i.e. the number of something.  The
+    |value| attribute value must be a JavaScript floating point number
+    string of the number.  If there is a |unit| attribute, its value
+    is used as the unit.  If the unit begins with an ASCII letter, a
+    SPACE character is inserted between the number and the value and a
+    |hasseparator| boolean attribute is specified to the |unit-number|
+    element.
+
+  percentage
+
+    The element represents a ratio as percentage (%).  The |value|
+    attribute value must be a JavaScript floating point number string
+    of the ratio, where |0| represents 0% and |1| represents 100%.
+
 * Author
 
 Wakaba <wakaba@suikawiki.org>.

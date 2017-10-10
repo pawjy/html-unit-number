@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<title>unit-number demo</title>
+<link rel=stylesheet href=unit-number-css-1.css>
+<script src=../src/unit-number.js async></script>
+
+<p>
+<template>
+  Progress: <unit-number value=0.535 type=percentage></unit-number> done.
+</template>
+
+<p>
+<template>
+  Selected <unit-number value=533 type=count></unit-number>.
+</template>
+
+<script>
+  document.querySelectorAll ('template').forEach (function (e) {
+    e.parentNode.replaceChild (e.content, e);
+  });
+</script>
+
+<!--
+
+Per CC0 <https://creativecommons.org/publicdomain/zero/1.0/>, to the
+extent possible under law, the author has waived all copyright and
+related or neighboring rights to this work.
+
+-->
