@@ -73,6 +73,11 @@ following:
     The element represents a distance.  The value of the element is
     the distance in meters.
 
+  duration
+
+    The element represents a duration.  The value of the element is
+    the duration in seconds.
+
   lat
 
     The element represents a latitude.  The value of the element is

@@ -4,6 +4,9 @@
     "lat.minus": "S",
     "lon.plus": "E",
     "lon.minus": "W",
+    "duration.h": "h",
+    "duration.m": "m",
+    "duration.s": "s",
   };
 
   var update = function (e) {
@@ -21,6 +24,24 @@
     } else if (type === 'percentage') {
       unit = '%';
       value = Math.round (value * 100 * 10) / 10;
+    } else if (type === 'duration') {
+      e.textContent = '';
+      var s = Math.floor (value % 60);
+      value = Math.floor (value / 60);
+      var m = value % 60;
+      value = Math.floor (value / 60);
+      var h = value % 60;
+      if (h) {
+        e.appendChild (document.createElement ('number-unit')).textContent = texts["duration.h"];
+      }
+      if (h || m) {
+        e.appendChild (document.createElement ('number-value')).textContent = m;
+        e.appendChild (document.createElement ('number-unit')).textContent = texts["duration.m"];
+      }
+      e.appendChild (document.createElement ('number-value')).textContent = s;
+      e.appendChild (document.createElement ('number-unit')).textContent = texts["duration.s"];
+      e.removeAttribute ('hasseparator');
+      return;
     } else if (type === 'lat' || type === 'lon') {
       var sign = value >= 0;
       if (!sign) value = -value;

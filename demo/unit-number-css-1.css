@@ -1,22 +1,9 @@
+@import '../css/default.css';
+
 unit-number > number-value {
   font-weight: bolder;
   font-size: 120%;
-}
-
-unit-number:not([hasseparator]) > number-value + number-unit {
-  margin-left: .2em;
-}
-
-unit-number[type=lat] > number-value + number-unit,
-unit-number[type=lon] > number-value + number-unit {
-  margin-left: 0;
-  margin-right: .2em;
-}
-
-unit-number[type=lat] > number-sign,
-unit-number[type=lon] > number-sign {
-  text-transform: lowercase;
-  font-variant: small-caps;
+  color: green;
 }
 
 /*
