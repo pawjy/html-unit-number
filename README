@@ -104,6 +104,11 @@ following:
     the element is the ratio, where |0| represents 0% and |1|
     represents 100%.
 
+  pixels
+
+    The element represents a length as CSS pixel.  The value of the
+    element is the number of CSS pixels.
+
   rank
 
     The element represents a rank (as in ranking).  The value of the
