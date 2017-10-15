@@ -102,6 +102,9 @@
       e.children[6].textContent = texts[type + (sign ? ".plus" : ".minus")];
       e.removeAttribute ('hasseparator');
       return;
+    } else if (type === 'pixels') {
+      value = Math.ceil (value * 10) / 10;
+      unit = 'px';
     }
     if (unit === '') {
       e.innerHTML = '<number-value></number-value>';
