@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Test</title>
+</head>
+<body>
+  <test-code name="unit-number value updated">
+    // <unit-number type=distance data-field=abc data-value=63636 title='<number-value>63.6</number-value><number-unit>km</number-unit>'></unit-number>
+    var e = document.querySelector ('test-code[name="unit-number value updated"]');
+    var f = e.querySelector ('unit-number');
+    return PCLoaded.then (() => {
+      $fill (e, {abc: 63636});
+    }).then (() => this.waitAndCheck (f) );
+  </test-code>
+
+  <script src=runtests.js></script>
+  <script> var PCLoaded = new Promise ((x,y) => window.PCLoaded_ = [x,y]) </script>
+  <script src=https://rawgit.com/wakaba/html-page-components/master/src/page-components.js async data-export=$fill onload="PCLoaded_[0](event)" onerror="PCLoaded_[1](event)"></script>
+</body>
+</html>
+<!--
+
+Per CC0 <https://creativecommons.org/publicdomain/zero/1.0/>, to the
+extent possible under law, the author has waived all copyright and
+related or neighboring rights to this work.
+
+-->

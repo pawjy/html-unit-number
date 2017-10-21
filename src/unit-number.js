@@ -147,6 +147,10 @@
   });
   mo.observe (document, {childList: true, subtree: true});
   Array.prototype.forEach.call (document.querySelectorAll (selector), op);
+
+  // Integration with <https://github.com/wakaba/html-page-components>
+  if (!self.pcFillType) self.pcFillType = {};
+  self.pcFillType["unit-number"] = 'contentattribute';
 }) ();
 
 /*
