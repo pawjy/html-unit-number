@@ -149,8 +149,10 @@
   Array.prototype.forEach.call (document.querySelectorAll (selector), op);
 
   // Integration with <https://github.com/wakaba/html-page-components>
-  if (!self.pcFillType) self.pcFillType = {};
-  self.pcFillType["unit-number"] = 'contentattribute';
+  var def = document.createElementNS ('data:,pc', 'filltype');
+  def.setAttribute ('name', 'unit-number');
+  def.setAttribute ('content', 'contentattribute');
+  document.head.appendChild (def);
 }) ();
 
 /*
