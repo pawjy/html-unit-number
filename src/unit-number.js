@@ -4,9 +4,6 @@
     "lat.minus": "S",
     "lon.plus": "E",
     "lon.minus": "W",
-    "duration.h": "h",
-    "duration.m": "m",
-    "duration.s": "s",
   };
 
   var mpf = 0.3048; // meter = 1 international foot
@@ -61,15 +58,11 @@
       var m = value % 60;
       value = Math.floor (value / 60);
       var h = value % 60;
-      if (h) {
-        e.appendChild (document.createElement ('number-unit')).textContent = texts["duration.h"];
-      }
-      if (h || m) {
-        e.appendChild (document.createElement ('number-value')).textContent = m;
-        e.appendChild (document.createElement ('number-unit')).textContent = texts["duration.m"];
-      }
-      e.appendChild (document.createElement ('number-value')).textContent = s;
-      e.appendChild (document.createElement ('number-unit')).textContent = texts["duration.s"];
+      e.appendChild (document.createElement ('number-value')).textContent = h;
+      e.appendChild (document.createElement ('number-separator')).textContent = ":";
+      e.appendChild (document.createElement ('number-value')).textContent = m > 10 ? m : "0" + m;
+      e.appendChild (document.createElement ('number-separator')).textContent = ":";
+      e.appendChild (document.createElement ('number-value')).textContent = s > 10 ? s : "0" + s;
       e.removeAttribute ('hasseparator');
       return;
     } else if (type === 'bytes') {
