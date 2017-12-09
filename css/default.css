@@ -2,12 +2,6 @@ unit-number:not([hasseparator]) > number-value + number-unit {
   margin-left: .2em;
 }
 
-unit-number[type=duration] > number-value + number-unit {
-  margin-left: .1em;
-  vertical-align: super;
-  font-size: 80%;
-}
-
 unit-number[type=lat] > number-value + number-unit,
 unit-number[type=lon] > number-value + number-unit {
   margin-left: 0;
