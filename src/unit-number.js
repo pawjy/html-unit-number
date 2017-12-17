@@ -53,11 +53,13 @@
       value = Math.round (value * 100 * 10) / 10;
     } else if (type === 'duration') {
       e.textContent = '';
-      var s = Math.floor (value % 60);
+      var s = value;
       value = Math.floor (value / 60);
       var m = value % 60;
       value = Math.floor (value / 60);
       var h = value % 60;
+      s -= m * 60 + h * 60 * 60;
+      s = s.toFixed (2);
       e.appendChild (document.createElement ('number-value')).textContent = h;
       e.appendChild (document.createElement ('number-separator')).textContent = ":";
       e.appendChild (document.createElement ('number-value')).textContent = m > 10 ? m : "0" + m;
