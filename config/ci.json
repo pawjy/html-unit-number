@@ -7,7 +7,7 @@
       "quay.io/wakaba/chromedriver:chromium"
     ],
 
-    "build": ["make deps"],
+    "build": ["make test-deps"],
     "tests": [
 
       "docker run --name firefoxdriver -v $(pwd):/project -d --net=host -t quay.io/wakaba/firefoxdriver:stable /fx",
