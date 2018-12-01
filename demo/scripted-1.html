@@ -24,6 +24,16 @@
     It takes <unit-number value=553.42 type=duration></unit-number>.
   </template>
 
+<p>
+  <template>
+    It takes <unit-number value=553.42 type=duration format=h:mm:ss.ss></unit-number>.
+  </template>
+
+<p>
+  <template>
+    It takes <unit-number value=553.42 type=duration format=h:mm:ss></unit-number>.
+  </template>
+
 <script>
   document.querySelectorAll ('template').forEach (function (e) {
     e.parentNode.replaceChild (e.content, e);

@@ -95,6 +95,22 @@ following:
     The element represents a duration.  The value of the element is
     the duration in seconds.
 
+    This type supports the |format| attribute with following values:
+
+      h:mm:ss.ss (default)
+
+        The duration is represented by the concatenation of the number
+        of hours, minutes, and seconds, separated by ":" characters,
+        where minutes and integral and fractional parts of seconds are
+        zero-padded and truncated to be two figures, respectively.
+
+      h:mm:ss
+
+        The duration is represented by the concatenation of the number
+        of hours, minutes, and seconds, separated by ":" characters,
+        where minutes and seconds are zero-padded to be two figures,
+        respectively.  Fractional part of seconds is truncated.
+
   lat
 
     The element represents a latitude.  The value of the element is
@@ -132,6 +148,10 @@ the |unit-number| element.
 Wakaba <wakaba@suikawiki.org>.
 
 * License
+
+unit-number.js: AGPL.  See its comment.
+
+Other files:
 
 Per CC0 <https://creativecommons.org/publicdomain/zero/1.0/>, to the
 extent possible under law, the author has waived all copyright and

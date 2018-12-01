@@ -53,10 +53,15 @@
       value = Math.round (value * 100 * 10) / 10;
     } else if (type === 'duration') {
       e.textContent = '';
+      var format = e.getAttribute ('format') || 'h:mm:ss.ss';
       var h = Math.floor (value / 60 / 60);
       var m = Math.floor (value / 60) - h * 60;
       var s = value - m * 60 - h * 60 * 60;
-      s = s.toFixed (2);
+      if (format === 'h:mm:ss') {
+        s = Math.floor (s);
+      } else {
+        s = s.toFixed (2);
+      }
       e.appendChild (document.createElement ('number-value')).textContent = h;
       e.appendChild (document.createElement ('number-separator')).textContent = ":";
       e.appendChild (document.createElement ('number-value')).textContent = m >= 10 ? m : "0" + m;
@@ -149,7 +154,7 @@
 
 /*
 
-Copyright 2017 Wakaba <wakaba@suikawiki.org>.
+Copyright 2017-2018 Wakaba <wakaba@suikawiki.org>.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
