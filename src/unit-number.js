@@ -15,7 +15,7 @@
     new MutationObserver (function (mutations) {
       useIUnits = document.documentElement.getAttribute ('data-distance-unit') === 'imperial';
       document.querySelectorAll ('unit-number[type=distance]').forEach (update);
-    }).observe (document.documentElement, {attributeFilter: ['data-distance-unit']});
+    }).observe (document.documentElement, {attributes: true, attributeFilter: ['data-distance-unit']});
   }
   
   var update = function (e) {
@@ -126,7 +126,7 @@
     var mo = new MutationObserver (function (mutations) {
       update (mutations[0].target);
     });
-    mo.observe (e, {attributeFilter: ['value', 'type']});
+    mo.observe (e, {attributes: true, attributeFilter: ['value', 'type']});
     Promise.resolve (e).then (update);
   }; // upgrade
   
