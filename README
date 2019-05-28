@@ -111,6 +111,17 @@ following:
         where minutes and seconds are zero-padded to be two figures,
         respectively.  Fractional part of seconds is truncated.
 
+  elevation
+
+    The element represents an elevation.  The value of the element is
+    the elevation in meters.
+
+    If the document's document element (i.e. the |html| element) has a
+    |data-distance-unit| attribute whose value is |imperial|, the
+    content is generated using the imperial system unit (i.e. feet).
+    Otherwise, the metric system unit (i.e. meters) is used.  Unlike
+    |distance| type, kilometers and miles are not used.
+
   lat
 
     The element represents a latitude.  The value of the element is

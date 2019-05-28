@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html data-distance-unit=imperial>
+<head>
+  <meta charset="utf-8">
+  <title>Test</title>
+</head>
+<body>
+  <div id="qunit-fixture">
+    <unit-number id=u1 value=12.45 data-value=12.45 type=elevation title='<number-value>40.84</number-value><number-unit>ft</number-unit>'></unit-number>
+    <unit-number id=u4 value=.45123 data-value=.45123 type=elevation title='<number-value>1.48</number-value><number-unit>ft</number-unit>'></unit-number>
+    <unit-number id=u5 value=7.45123 data-value=7.45123 type=elevation title='<number-value>24.44</number-value><number-unit>ft</number-unit>'></unit-number>
+    <unit-number id=u6 value=30.45123 data-value=30.45123 type=elevation title='<number-value>99.9</number-value><number-unit>ft</number-unit>'></unit-number>
+    <unit-number id=u7 value=300.45123 data-value=300.45123 type=elevation title='<number-value>985</number-value><number-unit>ft</number-unit>'></unit-number>
+    <unit-number id=u8 value=3000.45123 data-value=3000.45123 type=elevation title='<number-value>9,844</number-value><number-unit>ft</number-unit>'></unit-number>
+    <unit-number id=u9 value=31000.45123 data-value=31000.45123 type=elevation title='<number-value>101,707</number-value><number-unit>ft</number-unit>'></unit-number>
+    <unit-number id=u10 value=31500.45123 data-value=31500.45123 type=elevation title='<number-value>103,347</number-value><number-unit>ft</number-unit>'></unit-number>
+  </div>
+  <script src=runtests.js></script>
+
+  <test-code name="inserted">
+    var e = document.createElement ('unit-number');
+    e.setAttribute ('type', 'elevation');
+    e.setAttribute ('value', '+424.000');
+    e.title = '&lt;number-value>1,391&lt;/number-value>&lt;number-unit>ft&lt;/number-unit>';
+    e.setAttribute ('data-value', '+424.000');
+    document.body.appendChild (e);
+    return this.waitAndCheck (e);
+  </test-code>
+
+  <test-code name="value changed">
+    // <unit-number type=elevation value=43 data-value=-553 title='<number-value>-1,815</number-value><number-unit>ft</number-unit>'></unit-number>
+    var e = document.querySelector ('test-code[name="value changed"] unit-number');
+    e.setAttribute ('value', -553);
+    return this.waitAndCheck (e);
+  </test-code>
+</body>
+</html>
+<!--
+
+Per CC0 <https://creativecommons.org/publicdomain/zero/1.0/>, to the
+extent possible under law, the author has waived all copyright and
+related or neighboring rights to this work.
+
+-->

@@ -14,7 +14,7 @@
     useIUnits = document.documentElement.getAttribute ('data-distance-unit') === 'imperial';
     new MutationObserver (function (mutations) {
       useIUnits = document.documentElement.getAttribute ('data-distance-unit') === 'imperial';
-      document.querySelectorAll ('unit-number[type=distance]').forEach (update);
+      document.querySelectorAll ('unit-number[type=distance], unit-number[type=elevation]').forEach (update);
     }).observe (document.documentElement, {attributes: true, attributeFilter: ['data-distance-unit']});
   }
   
@@ -27,22 +27,36 @@
     if (type === 'distance') {
       unit = 'm';
       if (useIUnits) {
-        if (value >= 10 * fpml * mpf) {
-          value = Math.floor (value / mpf / fpml);
+        if (value >= 10 * fpml * mpf || value <= -10 * fpml * mpf) {
+          value = value / mpf / fpml;
           unit = 'ml';
         } else {
-          value = Math.floor (value / mpf);
+          value = value / mpf;
           unit = 'ft';
         }
       } else {
-        if (value >= 10000) {
+        if (value >= 10000 || value <= -10000) {
           value = Math.floor (value / 100) / 10;
           unit = 'km';
-        } else if (value >= 100) {
-          value = Math.floor (value);
-        } else {
-          value = Math.floor (value * 100) / 100;
         }
+      }
+      if (unit === 'km') {
+        //
+      } else if (value >= 100 || value <= -100) {
+        value = Math.floor (value);
+      } else {
+        value = Math.floor (value * 100) / 100;
+      }
+    } else if (type === 'elevation') {
+      unit = 'm';
+      if (useIUnits) {
+        value = value / mpf;
+        unit = 'ft';
+      }
+      if (value >= 100 || value <= -100) {
+        value = Math.floor (value);
+      } else {
+        value = Math.floor (value * 100) / 100;
       }
     } else if (type === 'count' || type === 'rank') {
       // XXX plural rules
@@ -154,7 +168,7 @@
 
 /*
 
-Copyright 2017-2018 Wakaba <wakaba@suikawiki.org>.
+Copyright 2017-2019 Wakaba <wakaba@suikawiki.org>.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
