@@ -7,5 +7,5 @@ Math::BigInt~1.999823
 Net::SSLeay~1.90
 Path::Tiny~0.118
 Socket~2.032
-Test::More~1.302186
+Test::More~1.302187
 Time::HiRes~1.9764
