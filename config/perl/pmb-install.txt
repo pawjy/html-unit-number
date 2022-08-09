@@ -1,6 +1,6 @@
-AnyEvent~7.17
+AnyEvent::Handle
 Carp~1.50
-Digest::SHA~6.02
+Digest::SHA~6.03
 IO::File~1.48
 MIME::Base64~3.16
 Math::BigInt~1.999837
