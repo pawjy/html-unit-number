@@ -5,7 +5,7 @@ IO::File~1.48
 MIME::Base64~3.16
 Math::BigInt~1.999837
 Net::SSLeay~1.92
-Path::Tiny~0.142
+Path::Tiny~0.144
 Socket~2.036
 Test::More~1.302191
 Time::HiRes~1.9764
