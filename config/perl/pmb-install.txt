@@ -1,6 +1,6 @@
 AnyEvent::Socket
 Carp~1.50
-Digest::SHA~6.03
+Digest::SHA~6.04
 IO::File~1.51
 MIME::Base64~3.16
 Math::BigInt~1.999837
