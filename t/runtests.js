@@ -27,7 +27,7 @@
 
   var checkElement = function (assert, e) {
     assert.equal (e.innerHTML, e.title, 'content');
-    assert.equal (e.getAttribute ('value'), e.getAttribute ('data-value') || null, 'value=""');
+    assert.equal (e.getAttribute ('value'), e.getAttribute ('data-value'), 'value=""');
   }; // checkElement
 
   qunitLoaded.then (function () {

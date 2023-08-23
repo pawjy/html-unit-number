@@ -150,6 +150,11 @@ following:
     The element represents a rank (as in ranking).  The value of the
     element is the rank number.
 
+  yen
+
+    The element represents a price in Japanese Yen (JPY, 日本円).
+    The value of the element is an integer of the yen.
+
 Types |distance| and |elevation| support Metric and Imperial unit
 systems:
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Test</title>
+</head>
+<body>
+  <div id="qunit-fixture">
+    <unit-number value data-value="" type=yen title></unit-number>
+    <unit-number value=0 data-value=0 type=yen title='<number-value>0</number-value><number-unit>円</number-unit>'></unit-number>
+    <unit-number value=1 data-value=1 type=yen title='<number-value>1</number-value><number-unit>円</number-unit>'></unit-number>
+    <unit-number value=120ab data-value=120ab type=yen title='<number-value>120</number-value><number-unit>円</number-unit>'></unit-number>
+    <unit-number value=ab120 data-value=ab120 type=yen title=''></unit-number>
+    <unit-number value=120e4 data-value=120e4 type=yen title='<number-value>120</number-value><number-unit>万</number-unit><number-unit>円</number-unit>'></unit-number>
+    <unit-number value=12.45 data-value=12.45 type=yen title='<number-value>12.45</number-value><number-unit>円</number-unit>'></unit-number>
+    <unit-number value=-12.45 data-value=-12.45 type=yen title='<number-value>&#x2212;12.45</number-value><number-unit>円</number-unit>'></unit-number>
+    <unit-number value=-10245 data-value=-10245 type=yen title='<number-value>&#x2212;1</number-value><number-unit>万</number-unit><number-value>245</number-value><number-unit>円</number-unit>'></unit-number>
+    <unit-number value=1234567890 data-value=1234567890 type=yen title='<number-value>12</number-value><number-unit>億</number-unit><number-value>3456</number-value><number-unit>万</number-unit><number-value>7890</number-value><number-unit>円</number-unit>'></unit-number>
+    <unit-number value=123456789012345680 data-value=123456789012345680 type=yen title='<number-value>12</number-value><number-unit>京</number-unit><number-value>3456</number-value><number-unit>兆</number-unit><number-value>7890</number-value><number-unit>億</number-unit><number-value>1234</number-value><number-unit>万</number-unit><number-value>5680</number-value><number-unit>円</number-unit>'></unit-number>
+  </div>
+  <script src=runtests.js></script>
+</body>
+</html>
+<!--
+
+Per CC0 <https://creativecommons.org/publicdomain/zero/1.0/>, to the
+extent possible under law, the author has waived all copyright and
+related or neighboring rights to this work.
+
+-->
