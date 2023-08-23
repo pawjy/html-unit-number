@@ -155,6 +155,11 @@ following:
     The element represents a price in Japanese Yen (JPY, 日本円).
     The value of the element is an integer of the yen.
 
+    Note that this implements the serialize a number in
+    CJK-10000-grouped number string
+    <https://manakai.github.io/spec-numbers/#serialize-a-number-in-cjk-10000-grouped-number-string>
+    algorithm.
+
 Types |distance| and |elevation| support Metric and Imperial unit
 systems:
 
