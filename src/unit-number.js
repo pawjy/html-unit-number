@@ -71,7 +71,8 @@
       value = Math.round (value * 100 * 10) / 10;
     } else if (type === 'duration') {
       e.textContent = '';
-      var format = e.getAttribute ('format') || 'h:mm:ss.ss';
+      let format = e.getAttribute ('format') || 'h:mm:ss.ss';
+      let unit = e.getAttribute ('unit');
       var h = Math.floor (value / 60 / 60);
       var m = Math.floor (value / 60) - h * 60;
       var s = value - m * 60 - h * 60 * 60;
@@ -81,11 +82,14 @@
         s = s.toFixed (2);
       }
       e.appendChild (document.createElement ('number-value')).textContent = (!(format === 'hh:mm' || format === 'hh:mm:ss' || format === 'hh:mm:ss.ss') || h >= 10) ? h : "0" + h;
-      e.appendChild (document.createElement ('number-separator')).textContent = ":";
+      e.appendChild (document.createElement ('number-separator')).textContent = (unit === '時間' ? '時間' : ":");
       e.appendChild (document.createElement ('number-value')).textContent = m >= 10 ? m : "0" + m;
       if (!(format === 'h:mm' || format === 'hh:mm')) {
-        e.appendChild (document.createElement ('number-separator')).textContent = ":";
+        e.appendChild (document.createElement ('number-separator')).textContent = (unit === '時間' ? '分' : ":");
         e.appendChild (document.createElement ('number-value')).textContent = s >= 10 ? s : "0" + s;
+        if (unit === '時間') {
+          e.appendChild (document.createElement ('number-separator')).textContent = (unit === '時間' ? '秒' : ":");
+        }
       }
       e.removeAttribute ('hasseparator');
       return;

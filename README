@@ -187,6 +187,10 @@ with an ASCII letter, a SPACE character is inserted between the number
 and the value and a |hasseparator| boolean attribute is specified to
 the |unit-number| element.
 
+Type |duration| supports the |unit| attribute.  If the |unit|
+attribute value is |時間|, the content is formatted using Japanese
+style, e.g. "12時間30分03秒41".
+
 * Author
 
 Wakaba <wakaba@suikawiki.org>.
