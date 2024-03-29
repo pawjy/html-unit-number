@@ -47,7 +47,7 @@
             },
             {
                "run" : {
-                  "command" : "docker kill firefoxdriver"
+                  "command" : "docker kill firefoxdriver || true"
                }
             },
             {
@@ -67,7 +67,7 @@
             },
             {
                "run" : {
-                  "command" : "docker kill chromedriver"
+                  "command" : "docker kill chromedriver || true"
                }
             },
             {
@@ -188,7 +188,7 @@
          "triggers" : [
             {
                "schedule" : {
-                  "cron" : "47 21 * * *",
+                  "cron" : "3 22 * * *",
                   "filters" : {
                      "branches" : {
                         "only" : [

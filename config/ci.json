@@ -13,12 +13,12 @@
       "docker run --name firefoxdriver -v $(pwd):/project -d --net=host -t quay.io/wakaba/firefoxdriver:stable /fx",
       "TEST_WD_URL=http://localhost:9516 TEST_RESULTS_DIR=$CIRCLE_ARTIFACTS/test_results/firefox make test",
       "docker logs firefoxdriver",
-      "docker kill firefoxdriver",
+      "docker kill firefoxdriver || true",
 
       "docker run --name chromedriver -v $(pwd):/project -d --net=host -t quay.io/wakaba/chromedriver:chromium /cd",
       "TEST_WD_URL=http://localhost:9515 TEST_RESULTS_DIR=$CIRCLE_ARTIFACTS/test_results/chromium make test",
       "docker logs chromedriver",
-      "docker kill chromedriver"
+      "docker kill chromedriver || true"
 
     ]
   }
