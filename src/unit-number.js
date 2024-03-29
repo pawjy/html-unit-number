@@ -80,11 +80,13 @@
       } else {
         s = s.toFixed (2);
       }
-      e.appendChild (document.createElement ('number-value')).textContent = (!(format === 'hh:mm:ss' || format === 'hh:mm:ss.ss') || h >= 10) ? h : "0" + h;
+      e.appendChild (document.createElement ('number-value')).textContent = (!(format === 'hh:mm' || format === 'hh:mm:ss' || format === 'hh:mm:ss.ss') || h >= 10) ? h : "0" + h;
       e.appendChild (document.createElement ('number-separator')).textContent = ":";
       e.appendChild (document.createElement ('number-value')).textContent = m >= 10 ? m : "0" + m;
-      e.appendChild (document.createElement ('number-separator')).textContent = ":";
-      e.appendChild (document.createElement ('number-value')).textContent = s >= 10 ? s : "0" + s;
+      if (!(format === 'h:mm' || format === 'hh:mm')) {
+        e.appendChild (document.createElement ('number-separator')).textContent = ":";
+        e.appendChild (document.createElement ('number-value')).textContent = s >= 10 ? s : "0" + s;
+      }
       e.removeAttribute ('hasseparator');
       return;
     } else if (type === 'bytes') {
@@ -234,7 +236,7 @@
 
 /*
 
-Copyright 2017-2023 Wakaba <wakaba@suikawiki.org>.
+Copyright 2017-2024 Wakaba <wakaba@suikawiki.org>.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as

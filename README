@@ -96,8 +96,8 @@ following:
 
         The duration is represented by the concatenation of the number
         of hours, minutes, and seconds, separated by ":" characters,
-        where minutes and integral and fractional parts of seconds are
-        zero-padded and truncated to be two figures, respectively.
+        followed by 1/100 seconds, where minutes, seconds, and 1/100
+        seconds are zero-padded.
 
       hh:mm:ss.ss
 
@@ -108,13 +108,23 @@ following:
 
         The duration is represented by the concatenation of the number
         of hours, minutes, and seconds, separated by ":" characters,
-        where minutes and seconds are zero-padded to be two figures,
-        respectively.  Fractional part of seconds is truncated.
+        where minutes and seconds are zero-padded.  Fractional part of
+        seconds is truncated.
 
       hh:mm:ss
 
         Similar to |h:mm:ss| but the hour is zero-padded when it is
         less than 10.
+
+      h:mm
+
+        The duration is represented by the concatenation of the number
+        of hours and minutes, separated by a ":" character, where
+        minutes are zero-padded.
+
+      hh:mm
+
+        Similar to |h:mm| but the hour is zero-padded.
 
   elevation
 
