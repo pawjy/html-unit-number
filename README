@@ -104,6 +104,11 @@ following:
         Similar to |h:mm:ss.ss| but the hour is zero-padded when it is
         less than 10.
 
+      h:m:s.ss
+
+        Similar to |h:mm:ss.ss| but no zero-padding for minutes and
+        seconds.
+
       h:mm:ss
 
         The duration is represented by the concatenation of the number
@@ -116,6 +121,11 @@ following:
         Similar to |h:mm:ss| but the hour is zero-padded when it is
         less than 10.
 
+      h:m:s
+
+        Similar to |h:mm:ss| but no zero-padding for minutes and
+        seconds.
+
       h:mm
 
         The duration is represented by the concatenation of the number
@@ -125,6 +135,10 @@ following:
       hh:mm
 
         Similar to |h:mm| but the hour is zero-padded.
+
+      h:m
+
+        Similar to |h:mm| but no zero-padding for minutes.
 
   elevation
 
