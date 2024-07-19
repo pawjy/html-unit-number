@@ -182,7 +182,7 @@ following:
     Note that this implements the serialize a number in
     CJK-10000-grouped number string
     <https://manakai.github.io/spec-numbers/#serialize-a-number-in-cjk-10000-grouped-number-string>
-    algorithm.
+    algorithm (except number units greater than 京 are not used).
 
 Types |distance| and |elevation| support Metric and Imperial unit
 systems:
