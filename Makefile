@@ -41,6 +41,6 @@ test-deps: deps
 
 # XXX requires TEST_WD_URL
 test-main:
-        TEST_MAX_CONCUR=1 WEBUA_DEBUG=2 $(PERL) t_deps/run-qunit-tests.pl
+	TEST_MAX_CONCUR=1 WEBUA_DEBUG=2 $(PERL) t_deps/run-qunit-tests.pl
 
 ## License: Public Domain.
