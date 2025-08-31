@@ -1,4 +1,4 @@
-AnyEvent::Handle
+AnyEvent~7.17
 Carp~1.50
 Digest::SHA~6.04
 File::Temp~0.2311
@@ -9,6 +9,6 @@ Net::SSLeay~1.94
 Path::Tiny~0.150
 Scalar::Util~1.70
 Socket~2.040
-Term::Table~0.024
+Term::Table~0.025
 Test::More~1.302214
 Time::HiRes~1.9764
