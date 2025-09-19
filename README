@@ -209,6 +209,13 @@ style, e.g. "12時間30分03秒41".
 
 Wakaba <wakaba@suikawiki.org>.
 
+* History
+
+The repository was located at
+<https://github.com/wakaba/html-unit-number> until R7.9.19 (19
+September 2025), then transferred to
+<https://github.com/pawjy/html-unit-number>.
+
 * License
 
 unit-number.js: AGPL.  See its comment.

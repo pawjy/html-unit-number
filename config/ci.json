@@ -1,10 +1,10 @@
 {
   "github": {
-    "pages": true
+    "pages": true,
+    "merger": 1,
+    "gaa": 1
   },
   "circleci": {
-    "merger": 1,
-    "gaa": 1,
     "required_docker_images": [
       "quay.io/wakaba/firefoxdriver:stable",
       "quay.io/wakaba/chromedriver:chromium"
