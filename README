@@ -1,6 +1,14 @@
 <unit-number></unit-number>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+* Typical usage
+
+  <script src=https://pawjy.github.io/html-unit-number/src/unit-number.js async></script>
+  <link rel=stylesheet href=https://pawjy.github.io/html-unit-number/css/default.css>
+  
+  <unit-number type=distance><number-value>100</number-value><number-unit>m</number-unit></unit-number>
+
+
 * Element semantics
 
   unit-number
