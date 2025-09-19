@@ -31,6 +31,8 @@ pmbp-install: pmbp-upgrade
 	perl local/bin/pmbp.pl $(PMBP_OPTIONS) --install \
             --create-perl-command-shortcut @perl
 
+build-github-pages:
+
 ## ------ Tests ------
 
 PERL = ./perl
