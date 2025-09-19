@@ -52,7 +52,7 @@ The |unit-number.js| script in the |src| directory of this Git
 repository implements the |unit-number| element.  It can be loaded by
 the usual way:
 
-  <script src=path/to/unit-number.js async></script>
+  <script src=https://pawjy.github.io/html-unit-number/src/unit-number.js async></script>
 
 This |script| element can be inserted, whenever desired, into anywhere
 in the document in question.  It mutates the content of any
