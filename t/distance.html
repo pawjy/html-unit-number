@@ -16,9 +16,11 @@
     <unit-number id=u8 value=3000.45123 data-value=3000.45123 type=distance title='<number-value>3,000</number-value><number-unit>m</number-unit>'></unit-number>
     <unit-number id=u9 value=31000.45123 data-value=31000.45123 type=distance title='<number-value>31</number-value><number-unit>km</number-unit>'></unit-number>
     <unit-number id=u10 value=31500.45123 data-value=31500.45123 type=distance title='<number-value>31.5</number-value><number-unit>km</number-unit>'></unit-number>
-    <unit-number id=u11 value=-31.545123 data-value=-31.545123 type=distance title='<number-value>-31.55</number-value><number-unit>m</number-unit>'></unit-number>
-    <unit-number id=u12 value=-31500.45123 data-value=-31500.45123 type=distance title='<number-value>-31.6</number-value><number-unit>km</number-unit>'></unit-number>
-    <unit-number id=u11 value=31500.45123 data-value=31500.45123 type=distance altunit title='<number-value>19.57</number-value><number-unit>ml</number-unit>'></unit-number>
+    <unit-number id=u11 value=-31.545123 data-value=-31.545123 type=distance title='<number-sign>&minus;</number-sign><number-value>31.55</number-value><number-unit>m</number-unit>'></unit-number>
+    <unit-number id=u12 value=-31500.45123 data-value=-31500.45123 type=distance title='<number-sign>&minus;</number-sign><number-value>31.6</number-value><number-unit>km</number-unit>'></unit-number>
+    <unit-number id=u13 value=31500.45123 data-value=31500.45123 type=distance altunit title='<number-value>19.57</number-value><number-unit>ml</number-unit>'></unit-number>
+    <unit-number id=u14 value=31500.45123 data-value=31500.45123 type=distance delta title='<number-sign>+</number-sign><number-value>31.5</number-value><number-unit>km</number-unit>'></unit-number>
+    <unit-number id=u15 value=-31500.45123 data-value=-31500.45123 type=distance delta title='<number-sign>&minus;</number-sign><number-value>31.6</number-value><number-unit>km</number-unit>'></unit-number>
   </div>
   <script src=runtests.js></script>
 
@@ -33,14 +35,14 @@
   </test-code>
 
   <test-code name="value changed">
-    // <unit-number type=distance value=43 data-value=-553 title='<number-value>-553</number-value><number-unit>m</number-unit>'></unit-number>
+    // <unit-number type=distance value=43 data-value=-553 title='<number-sign>&minus;</number-sign><number-value>553</number-value><number-unit>m</number-unit>'></unit-number>
     var e = document.querySelector ('test-code[name="value changed"] unit-number');
     e.setAttribute ('value', -553);
     return this.waitAndCheck (e);
   </test-code>
 
   <test-code name="value changed twice">
-    // <unit-number type=distance value=43 data-value=-553 title='<number-value>-553</number-value><number-unit>m</number-unit>'></unit-number>
+    // <unit-number type=distance value=43 data-value=-553 title='<number-sign>&minus;</number-sign><number-value>553</number-value><number-unit>m</number-unit>'></unit-number>
     var e = document.querySelector ('test-code[name="value changed twice"] unit-number');
     e.setAttribute ('value', 44.33);
     return Promise.resolve ().then (() => 

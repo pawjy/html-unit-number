@@ -1,9 +1,11 @@
 (function () {
-  var texts = {
+  let texts = {
     "lat.plus": "N",
     "lat.minus": "S",
     "lon.plus": "E",
     "lon.minus": "W",
+    "number.plus": "+",
+    "number.minus": "\u2212",
   };
 
   var mpf = 0.3048; // meter = 1 international foot
@@ -24,6 +26,7 @@
     var type = e.getAttribute ('type');
     var unit = null;
     var separator = '';
+    let sign = null;
     if (type === 'distance') {
       unit = 'm';
       var iu = useIUnits;
@@ -49,6 +52,12 @@
       } else {
         value = Math.floor (value * 100) / 100;
       }
+      if (value < 0) {
+        sign = -1;
+        value = -value;
+      } else {
+        if (e.hasAttribute ('delta')) sign = +1;
+      }
     } else if (type === 'elevation') {
       unit = 'm';
       var iu = useIUnits;
@@ -61,6 +70,12 @@
         value = Math.floor (value);
       } else {
         value = Math.floor (value * 100) / 100;
+      }
+      if (value < 0) {
+        sign = -1;
+        value = -value;
+      } else {
+        if (e.hasAttribute ('delta')) sign = +1;
       }
     } else if (type === 'count' || type === 'rank') {
       // XXX plural rules
@@ -115,7 +130,7 @@
         }
       }
     } else if (type === 'lat' || type === 'lon') {
-      var sign = value >= 0;
+      let sign = value >= 0;
       if (!sign) value = -value;
       var v = Math.floor (value);
       value = (value % 1) * 60;
@@ -211,6 +226,11 @@
         e.removeAttribute ('hasseparator');
       }
     }
+    if (sign !== null) {
+      let f = document.createElement ('number-sign');
+      f.textContent = texts[(sign >= 0 ? "number.plus" : "number.minus")];
+      e.insertBefore (f, e.firstChild);
+    }
   }; // update
 
   var upgrade = function (e) {
@@ -247,7 +267,7 @@
 
 /*
 
-Copyright 2017-2024 Wakaba <wakaba@suikawiki.org>.
+Copyright 2017-2025 Wakaba <wakaba@suikawiki.org>.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
