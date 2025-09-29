@@ -14,6 +14,8 @@
     <unit-number id=u8 value=3000.45123 data-value=3000.45123 type=elevation title='<number-value>9,844</number-value><number-unit>ft</number-unit>'></unit-number>
     <unit-number id=u9 value=31000.45123 data-value=31000.45123 type=elevation title='<number-value>101,707</number-value><number-unit>ft</number-unit>'></unit-number>
     <unit-number id=u10 value=31500.45123 data-value=31500.45123 type=elevation title='<number-value>103,347</number-value><number-unit>ft</number-unit>'></unit-number>
+    <unit-number id=u11 value=31500.45123 data-value=31500.45123 type=elevation delta title='<number-sign>+</number-sign><number-value>103,347</number-value><number-unit>ft</number-unit>'></unit-number>
+    <unit-number id=u12 value=-31500.45123 data-value=-31500.45123 type=elevation delta title='<number-sign>&minus;</number-sign><number-value>103,348</number-value><number-unit>ft</number-unit>'></unit-number>
   </div>
   <script src=runtests.js></script>
 
@@ -28,7 +30,7 @@
   </test-code>
 
   <test-code name="value changed">
-    // <unit-number type=elevation value=43 data-value=-553 title='<number-value>-1,815</number-value><number-unit>ft</number-unit>'></unit-number>
+    // <unit-number type=elevation value=43 data-value=-553 title='<number-sign>&minus;</number-sign><number-value>1,815</number-value><number-unit>ft</number-unit>'></unit-number>
     var e = document.querySelector ('test-code[name="value changed"] unit-number');
     e.setAttribute ('value', -553);
     return this.waitAndCheck (e);
