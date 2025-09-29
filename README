@@ -5,9 +5,12 @@
 
   <script src=https://pawjy.github.io/html-unit-number/src/unit-number.js async></script>
   <link rel=stylesheet href=https://pawjy.github.io/html-unit-number/css/default.css>
-  
+
+  <!-- Static -->
   <unit-number type=distance><number-value>100</number-value><number-unit>m</number-unit></unit-number>
 
+  <!-- Script-inserted -->
+  <unit-number type=elevation value=3776></unit-number>
 
 * Element semantics
 
@@ -25,7 +28,9 @@
     element, the element represents its content.  Its content model is
     phrasing content.  It may contain any character sequence directly
     or indirectly, which as a whole represents a sign suitable for
-    human consumption.
+    human consumption.  Note that signs can be any string acts as sign
+    indicator for the purpose of the |unit-number|'s type, including
+    but not limited to: |+|, |-|, |－|, |▲|, |N|, and |東経|.
 
   number-value
 
@@ -93,6 +98,9 @@ following:
     The element represents a distance.  The value of the element is
     the distance in meters.
 
+    This type supports the |delta| attribute.  If specified, the sign
+    is shown even when the value is non-negative (i.e. |+|).
+
   duration
 
     The element represents a duration.  The value of the element is
@@ -155,6 +163,9 @@ following:
 
     Unlike the |distance| type, units kilometers and miles are not
     used.
+
+    This type supports the |delta| attribute.  If specified, the sign
+    is shown even when the value is non-negative (i.e. |+|).
 
   lat
 
